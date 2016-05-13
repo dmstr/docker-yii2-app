@@ -30,6 +30,7 @@ release:
   script:
     - docker push ${STACK_PHP_IMAGE}
   only:
+    - tags
     - release
 
 cleanup:
