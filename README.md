@@ -14,6 +14,7 @@ This is a minimal dockerized application template for Yii 2.0 Framework.
 ## Setup
 
     cp .env-dist .env
+    cp src/app.env-dist src/app.env
     mkdir web/assets
 
 Start stack
