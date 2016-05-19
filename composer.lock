@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a8f7c1921fe82065ec8a8b9a77ce900c",
-    "content-hash": "ba2694c4e7ea1933b007395134d64eb7",
+    "hash": "542c7f22cf548afbc81c49633ccd06b4",
+    "content-hash": "719e1ba15b39ad0f2f4b83a299036401",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -254,6 +254,45 @@
                 "markdown-extra"
             ],
             "time": "2015-03-06 05:28:07"
+        },
+        {
+            "name": "codemix/yii2-streamlog",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemix/yii2-streamlog.git",
+                "reference": "8a0f03900887651e00a4f26cf7c3a12043bc2784"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemix/yii2-streamlog/zipball/8a0f03900887651e00a4f26cf7c3a12043bc2784",
+                "reference": "8a0f03900887651e00a4f26cf7c3a12043bc2784",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "codemix\\streamlog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "A Yii 2 log target for streams in URL format",
+            "keywords": [
+                "log",
+                "stdout",
+                "stream",
+                "yii2"
+            ],
+            "time": "2015-04-28 08:24:33"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -539,6 +578,53 @@
                 "yii2"
             ],
             "time": "2016-02-06 00:49:24"
+        },
+        {
+            "name": "yiisoft/yii2-debug",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-debug.git",
+                "reference": "55ed2e853ed8050a34415f63a4da84f88a56f895"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/55ed2e853ed8050a34415f63a4da84f88a56f895",
+                "reference": "55ed2e853ed8050a34415f63a4da84f88a56f895",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": ">=2.0.4",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\debug\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The debugger extension for the Yii framework",
+            "keywords": [
+                "debug",
+                "debugger",
+                "yii2"
+            ],
+            "time": "2016-03-17 03:50:19"
         }
     ],
     "packages-dev": [],

@@ -15,6 +15,24 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'log' => [
+            'targets' => [
+                // writes to php-fpm output stream
+                [
+                    'class' => 'codemix\streamlog\Target',
+                    'url' => 'php://stdout',
+                    'levels' => ['info', 'trace'],
+                    'logVars' => [],
+                    'enabled' => YII_DEBUG,
+                ],
+                [
+                    'class' => 'codemix\streamlog\Target',
+                    'url' => 'php://stderr',
+                    'levels' => ['error', 'warning'],
+                    'logVars' => [],
+                ],
+            ],
+        ],
         'request' => [
             'cookieValidationKey' => getenv('APP_COOKIE_VALIDATION_KEY'),
         ],
