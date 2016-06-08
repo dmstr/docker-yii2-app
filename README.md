@@ -3,7 +3,7 @@ yii2-app
 
 ## Introduction
 
-This is a minimal dockerized application template for Yii 2.0 Framework.
+This is a minimal dockerized application template for Yii 2.0 Framework in about 100 lines of code.
 
 ## Requirements
 
@@ -13,7 +13,12 @@ This is a minimal dockerized application template for Yii 2.0 Framework.
 
 ## Setup
 
+Prepare `docker-compose` environment
+
     cp .env-dist .env
+
+and application    
+    
     cp src/app.env-dist src/app.env
     mkdir web/assets
 
@@ -25,15 +30,22 @@ Show containers
 
     docker-compose ps
 
-Create bash    
-    
-    docker-compose run --rm php bash
+Run composer installation
 
-Run setup in container    
-    
-    $ composer install
+    docker-compose run --rm php composer install
+
 
 ## Develop
+
+Create bash    
+    
+    docker-compose exec php bash
+
+Run package update in container    
+    
+    $ composer update -v
+
+...
 
     $ yii help
       
@@ -53,4 +65,3 @@ Run setup in container
 ---
 
 #### ![dmstr logo](http://t.phundament.com/dmstr-16-cropped.png) Built by [dmstr](http://diemeisterei.de)
-    
