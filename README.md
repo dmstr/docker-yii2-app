@@ -1,5 +1,8 @@
-yii2-app
-========
+Docker Yii 2.0 Application
+==========================
+
+:octocat: `dmstr/docker-yii2-app`
+:whale: `dmstr/yii2-app`
 
 ## Introduction
 
