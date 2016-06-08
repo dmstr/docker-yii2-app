@@ -2,6 +2,7 @@ Docker Yii 2.0 Application
 ==========================
 
 :octocat: `dmstr/docker-yii2-app`
+:factory: [`dmstr/docker-yii2-app`](https://git.hrzg.de/dmstr/docker-yii2-app)
 :whale: `dmstr/yii2-app`
 
 ## Introduction
