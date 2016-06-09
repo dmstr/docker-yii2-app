@@ -21,9 +21,9 @@ build:
 test:
   stage: test
   script:
+    - cp src/app.env-dist src/app.env
     - cd tests
     - cp .env-dist .env
-    - cp src/app.env-dist src/app.env
     - docker-compose run --entrypoint composer forrest --prefer-dist install
     - docker-compose run forrest run
 
