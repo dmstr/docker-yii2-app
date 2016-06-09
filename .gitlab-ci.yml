@@ -23,7 +23,7 @@ test:
   script:
     - cd tests
     - cp .env-dist .env
-    - cp src/app-dist.env src/app.env
+    - cp src/app.env-dist src/app.env
     - docker-compose run --entrypoint composer forrest --prefer-dist install
     - docker-compose run forrest run
 
