@@ -23,7 +23,7 @@ test:
   script:
     - cd tests
     - cp .env-dist .env
-    - docker-compose run -e YII_ENV=test php codecept run
+    - docker-compose run forrest run
 
 release:
   stage: deploy
