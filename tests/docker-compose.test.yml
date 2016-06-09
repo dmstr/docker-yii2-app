@@ -1,6 +1,6 @@
 version: '2'
 services:
-  codecept:
+  forrest:
     image: codeception/codeception
     environment:
       - YII_ENV=test
