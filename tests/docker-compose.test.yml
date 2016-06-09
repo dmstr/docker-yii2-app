@@ -1,6 +1,8 @@
 version: '2'
 services:
-  php:
+  codecept:
+    image: codeception/codeception
+    environment:
+      - YII_ENV=test
     volumes:
-      - ./tests:/app/tests
-      - ./codeception.yml:/app/codeception.yml
+      - ./:/project

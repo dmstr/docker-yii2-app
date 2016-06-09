@@ -54,8 +54,15 @@ Run package update in container
     $ yii help
       
 ## Test
+
+    cd tests
+    cp .env-dist .env
+
+Run tests in codeception (`forrest`) container
       
-    $ codecept run      
+    docker-compose run forrest run
+          
+> :info: This is equivalent to `codecept run` inside the tester container          
     
 ### CLI
     

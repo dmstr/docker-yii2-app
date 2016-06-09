@@ -12,10 +12,5 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-modules:
-    config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/codeception/_data/dump.sql
+config:
+    test_entry_url: http://web:80/index.php
