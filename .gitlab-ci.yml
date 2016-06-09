@@ -21,9 +21,9 @@ build:
 test:
   stage: test
   script:
-    - docker-compose run php composer --prefer-dist install
     - cd tests
     - cp .env-dist .env
+    - docker-compose run --entrypoint composer forrest --prefer-dist install
     - docker-compose run forrest run
 
 release:
