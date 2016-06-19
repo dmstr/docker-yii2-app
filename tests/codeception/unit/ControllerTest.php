@@ -11,8 +11,8 @@ class ControllerTest extends \PHPUnit_Framework_TestCase
     }
 
     // tests
-    public function testMe()
+    public function testApp()
     {
-        Yii::$app;
+        $this->assertNotEquals(null,Yii::$app);
     }
 }
