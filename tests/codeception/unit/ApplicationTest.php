@@ -1,6 +1,6 @@
 <?php
 
-class ControllerTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
@@ -14,5 +14,10 @@ class ControllerTest extends \PHPUnit_Framework_TestCase
     public function testApp()
     {
         $this->assertNotEquals(null,Yii::$app);
+    }
+
+    public function testUser()
+    {
+        $this->assertNotEquals(null,Yii::$app->request);
     }
 }
