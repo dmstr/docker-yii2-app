@@ -16,7 +16,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEquals(null,Yii::$app);
     }
 
-    public function testUser()
+    public function testRequest()
     {
         $this->assertNotEquals(null,Yii::$app->request);
     }
