@@ -14,10 +14,12 @@ before_script:
   - export STACK_PHP_IMAGE=${PHP_IMAGE_NAME}:${APP_VERSION}
   - export REGISTRY_PHP_IMAGE=${PHP_IMAGE_NAME}:${CI_BUILD_REF_NAME}
 
-
 build:
   stage: build
   script:
+    - docker info
+    - docker version
+    - docker-compose version
     - cp .env-dist .env
     - docker-compose build --pull
 
