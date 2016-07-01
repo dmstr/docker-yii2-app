@@ -6,15 +6,18 @@ Docker Yii 2.0 Application
 :whale: [`dmstr/yii2-app`](https://hub.docker.com/r/dmstr/yii2-app/)
 :cd: [`dmstr/php-yii2`](https://hub.docker.com/r/dmstr/php-yii2/)
 
+
 ## Introduction
 
 This is a minimal dockerized application template for Yii 2.0 Framework in about 100 lines of code.
+
 
 ## Requirements
 
 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
   - Docker `>=1.10`
   - docker-compose `>=1.7.0`
+
 
 ## Setup
 
@@ -53,6 +56,7 @@ Run package update in container
 ...
 
     $ yii help
+
       
 ## Test
 
@@ -64,15 +68,18 @@ Run tests in codeception (`forrest`) container
     docker-compose run forrest run
           
 > :info: This is equivalent to `codecept run` inside the tester container          
-    
+  
+
 ### CLI
     
     docker run dmstr/yii2-app yii
+
 
 ## Resources
     
 - [Yii 2.0 Framework guide](http://www.yiiframework.com/doc-2.0/guide-index.html)
 - [Docker documentation](https://docs.docker.com)
+
     
 ---
 
