@@ -1,0 +1,19 @@
+sudo: required
+
+language: php
+
+services:
+  - docker
+
+before_install:
+  - cp src/app.env-dist src/app.env
+  - cp tests/.env-dist tests/.env
+
+script:
+  - docker-compose run forrest run
+
+addons:
+  artifacts:
+    s3_region: eu-west-1
+    paths:
+      - tests/_output
