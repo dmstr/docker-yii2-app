@@ -10,10 +10,5 @@ before_install:
   - cp tests/.env-dist tests/.env
 
 script:
+  - cd tests
   - docker-compose run forrest run
-
-addons:
-  artifacts:
-    s3_region: eu-west-1
-    paths:
-      - tests/_output

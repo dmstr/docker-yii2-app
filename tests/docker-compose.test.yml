@@ -1,7 +1,7 @@
 version: '2'
 services:
   forrest:
-    image: codeception/codeception
+    image: codeception/codeception:2.2
     environment:
       - YII_ENV=test
     volumes:
