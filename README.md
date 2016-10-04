@@ -6,6 +6,7 @@ Docker Yii 2.0 Application
 :whale: [`dmstr/yii2-app`](https://hub.docker.com/r/dmstr/yii2-app/)
 :cd: [`dmstr/php-yii2`](https://hub.docker.com/r/dmstr/php-yii2/)
 
+[![Build Status](https://travis-ci.org/dmstr/docker-yii2-app.svg?branch=master)](https://travis-ci.org/dmstr/docker-yii2-app)
 
 ## Introduction
 
