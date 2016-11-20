@@ -5,4 +5,5 @@ build:
   script:
     - composer install --prefer-dist --optimize-autoloader
     - export YII_ENV=test
+    - cp src/app.env-dist src/app.env
     - codecept run
