@@ -3,4 +3,6 @@ image: schmunk42/codeception:experimental
 build:
   stage: build
   script:
+    - composer install --prefer-dist --optimize-autoloader
+    - export YII_ENV=test
     - codecept run
