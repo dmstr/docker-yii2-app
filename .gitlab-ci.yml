@@ -49,4 +49,3 @@ cleanup:
     - docker-compose kill
     - docker-compose rm -fv --all
     - docker-compose down --remove-orphans --rmi local
-

@@ -1,16 +1,11 @@
 version: '2'
 services:
-  web:
-    volumes:
-      - ./web:/app/web
   php:
     build:
       dockerfile: Dockerfile
       context: .
-      args:
-        - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
     environment:
-      - PHP_USER_ID=1000
+      - PHP_USER_ID=82
       - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
     volumes:
       - ./composer.json:/app/composer.json

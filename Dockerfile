@@ -1,4 +1,4 @@
-FROM dmstr/php-yii2
+FROM dmstr/php-yii2:7.1-fpm-3.0-beta2-alpine-nginx
 
 WORKDIR /app
 
@@ -13,4 +13,4 @@ RUN cp src/app.env-dist src/app.env
 
 RUN mkdir -p runtime web/assets && \
     chmod -R 775 runtime web/assets && \
-    chown -R 1000:33 runtime web/assets
+    chown -R 82:33 runtime web/assets
