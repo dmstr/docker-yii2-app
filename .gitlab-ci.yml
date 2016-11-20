@@ -1,59 +1,6 @@
-image: docker
-
-services:
-  - docker:dind
-
-stages:
-  - build
-  - test
-  - release
-  - deploy
-  - cleanup
-
-
-before_script:
-  - apk add --no-cache py-pip git
-  - pip install docker-compose
-  - export ISOLATION=buildref${CI_BUILD_REF}$(echo ${CI_BUILD_REF_NAME} | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
-  - export COMPOSE_PROJECT_NAME=${ISOLATION}
-  - export APP_VERSION=$(git describe --always --dirty)
-  - export PHP_IMAGE_NAME=dmstr/yii2-app
-  - export STACK_PHP_IMAGE=${PHP_IMAGE_NAME}:${APP_VERSION}
-  - export REGISTRY_PHP_IMAGE=${PHP_IMAGE_NAME}:${CI_BUILD_REF_NAME}
+image: schmunk42/codeception:experimental
 
 build:
   stage: build
   script:
-    - docker info
-    - docker version
-    - docker-compose version
-    - cp .env-dist .env
-    - docker-compose build --pull
-
-test:
-  stage: test
-  script:
-    - cp src/app.env-dist src/app.env
-    - cd tests
-    - cp .env-dist .env
-    - docker-compose run --entrypoint composer forrest --prefer-dist install
-    - docker-compose run forrest run
-
-release:latest:
-  stage: release
-  script:
-    - docker tag ${STACK_PHP_IMAGE} ${REGISTRY_PHP_IMAGE}
-    - docker login --username ${REGISTRY_USERNAME} --password ${REGISTRY_PASSWORD} ${REGISTRY_HOST}
-    - docker push ${REGISTRY_PHP_IMAGE}
-  only:
-    - latest
-    - tags
-
-cleanup:
-  stage: cleanup
-  when: always
-  script:
-    - docker-compose kill
-    - docker-compose rm -fv --all
-    - docker-compose down --remove-orphans --rmi local
-
+    - codecept run
