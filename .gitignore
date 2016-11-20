@@ -7,3 +7,4 @@ docker-compose.override.yml
 app.env
 _artifacts
 tests/codeception/_output
+tests/codeception/_support/_generated
