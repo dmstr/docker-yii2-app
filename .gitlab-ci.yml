@@ -1,4 +1,4 @@
-image: schmunk42/codeception:experimental
+image: schmunk42/codeception:experimental-alpine
 
 build:
   stage: build
