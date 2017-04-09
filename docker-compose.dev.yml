@@ -1,9 +1,7 @@
 version: '2'
 services:
   php:
-    build:
-      dockerfile: Dockerfile
-      context: .
+    build: .
     environment:
       - PHP_USER_ID=82
       - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
@@ -15,3 +13,5 @@ services:
       - ./web:/app/web
       - ./tests:/app/tests
       - ./codeception.yml:/app/codeception.yml
+    ports:
+      - 20080:80

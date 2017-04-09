@@ -1,5 +1,7 @@
 version: '2'
 services:
+  php:
+    build: .
   forrest:
     image: codeception/codeception:2.2.7
     environment:

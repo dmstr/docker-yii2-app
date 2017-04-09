@@ -1,6 +1,4 @@
 version: '2'
 services:
     php:
-        build: .
-        ports:
-          - 20080:80
+        image: ${STACK_PHP_IMAGE}
