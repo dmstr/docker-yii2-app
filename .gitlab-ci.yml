@@ -1,3 +1,8 @@
+image: docker
+
+services:
+  - docker:dind
+
 stages:
   - build
   - test
@@ -7,6 +12,8 @@ stages:
 
 
 before_script:
+  - apk add --no-cache py-pip git
+  - pip install docker-compose
   - export ISOLATION=buildref${CI_BUILD_REF}$(echo ${CI_BUILD_REF_NAME} | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
   - export COMPOSE_PROJECT_NAME=${ISOLATION}
   - export APP_VERSION=$(git describe --always --dirty)
