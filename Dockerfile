@@ -13,4 +13,4 @@ RUN cp src/app.env-dist src/app.env
 
 RUN mkdir -p runtime web/assets && \
     chmod -R 775 runtime web/assets && \
-    chown -R 82:33 runtime web/assets
+    chown -R www-data:www-data runtime web/assets
