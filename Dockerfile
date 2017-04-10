@@ -2,7 +2,6 @@ FROM dmstr/php-yii2:7.1-fpm-3.0-beta2-alpine-nginx
 
 WORKDIR /app
 
-ARG GITHUB_API_TOKEN
 ADD composer.lock composer.json /app/
 RUN composer install --prefer-dist --optimize-autoloader
 
