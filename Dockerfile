@@ -1,4 +1,4 @@
-FROM dmstr/php-yii2:7.1-fpm-3.0-beta2-alpine-nginx
+FROM dmstr/php-yii2:7.1-fpm-3.1-rc3-alpine-nginx
 
 WORKDIR /app
 
