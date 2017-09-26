@@ -34,13 +34,13 @@ $this->title .= 'Home';
         <h2>Start development bash</h2>
         <p class="well">
             <code>
-                docker-compose run php bash
+                docker-compose run --rm php bash
             </code>
         </p>
         <h2>Install packages</h2>
         <p class="well">
             <code>
-                $ composer require "dmstr/yii2-cms-metapackage"
+                $ composer require "dmstr/yii2-adminlte-asset"
             </code>
         </p>
     </div>
