@@ -28,7 +28,7 @@ Prepare `docker-compose` environment
 
 and application    
     
-    cp src/app.env-dist src/app.env
+    cp config/app.env-dist config/app.env
     mkdir web/assets
 
 Start stack

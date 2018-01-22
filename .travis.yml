@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - cp src/app.env-dist src/app.env
+  - cp config/app.env-dist config/app.env
   - cp tests/.env-dist tests/.env
   - composer install --prefer-dist
 
