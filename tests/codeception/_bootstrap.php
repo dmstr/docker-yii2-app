@@ -4,7 +4,7 @@
 $rootPath = __DIR__.'/../..';
 
 require($rootPath.'/vendor/autoload.php');
-require($rootPath.'/src/config/env.php');
+require($rootPath.'/config/env.php');
 
 if (getenv('YII_ENV') !== 'test') {
     echo "Error: YII_ENV must be set to 'test'\n";
