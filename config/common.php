@@ -13,7 +13,7 @@
 return [
     'id' => 'app',
     'language' => 'en',
-    'basePath' => dirname(__DIR__),
+    'basePath' => dirname(__DIR__).'/src',
     'vendorPath' => '@app/../vendor',
     'runtimePath' => '@app/../runtime',
     // Bootstrapped modules are loaded in every request

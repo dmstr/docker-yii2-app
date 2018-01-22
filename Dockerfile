@@ -1,4 +1,4 @@
-FROM dmstr/php-yii2:7.1-fpm-3.1-alpine-nginx
+FROM yiisoftware/yii2-php:7.2-apache
 
 WORKDIR /app
 
@@ -6,6 +6,7 @@ ADD composer.lock composer.json /app/
 RUN composer install --prefer-dist --optimize-autoloader
 
 ADD yii /app/
+ADD ./config /app/config
 ADD ./web /app/web/
 ADD ./src /app/src/
 RUN cp src/app.env-dist src/app.env

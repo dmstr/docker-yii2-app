@@ -14,7 +14,7 @@ $version = is_file(__DIR__.'/../version') ? file_get_contents(__DIR__.'/../versi
 defined('APP_VERSION') or define('APP_VERSION', $version);
 
 // Load default settings via dotenv from file
-$dotenv = new Dotenv\Dotenv(__DIR__.'/..', 'app.env');
+$dotenv = new Dotenv\Dotenv(__DIR__, 'app.env');
 $dotenv->load();
 
 // Checks & validation
