@@ -2,7 +2,7 @@ Docker Yii 2.0 Application
 ==========================
 
 :octocat: [`dmstr/docker-yii2-app`](https://github.com/dmstr/docker-yii2-app)
-:factory: [`dmstr/docker-yii2-app`](https://git.hrzg.de/dmstr/docker-yii2-app/pipelines)
+:wolf: [`dmstr/docker-yii2-app`](https://git.hrzg.de/dmstr/docker-yii2-app/pipelines)
 :whale: [`dmstr/yii2-app`](https://hub.docker.com/r/dmstr/yii2-app/)
 :cd: [`dmstr/php-yii2`](https://hub.docker.com/r/dmstr/php-yii2/)
 
@@ -65,7 +65,7 @@ Run package update in container
     cp .env-dist .env
 
 Run tests in codeception (`forrest`) container
-      
+      d
     docker-compose run forrest run
           
 > :info: This is equivalent to `codecept run` inside the tester container          
@@ -77,8 +77,10 @@ Run tests in codeception (`forrest`) container
 
 
 ## Resources
-    
+
+- [Changes](CHANGELOG.md)    
 - [Yii 2.0 Framework guide](http://www.yiiframework.com/doc-2.0/guide-index.html)
+- [Yii 2.0 Docker Images](https://github.com/yiisoft/yii2-docker)
 - [Docker documentation](https://docs.docker.com)
 
     
