@@ -7,20 +7,20 @@ stages:
   - build
   - test
   - release
-  - deploy
-  - cleanup
-
 
 before_script:
   # TODO: only required on gitlab.com
-  #- apk add --no-cache py-pip git
-  #- pip install docker-compose
+  - (apk add --no-cache py-pip git && pip install docker-compose) || true
+
   - export ISOLATION=buildpipeline${CI_BUILD_PIPELINE}
   - export COMPOSE_PROJECT_NAME=${ISOLATION}
   - export APP_VERSION=$(git describe --always --dirty)
   - export PHP_IMAGE_NAME=dmstr/yii2-app
   - export STACK_PHP_IMAGE=${PHP_IMAGE_NAME}:${APP_VERSION}
   - export REGISTRY_PHP_IMAGE=${PHP_IMAGE_NAME}:${CI_BUILD_REF_NAME}
+
+after_script:
+  - docker-compose down -v
 
 build:
   stage: build
@@ -49,11 +49,3 @@ release:latest:
   only:
     - latest
     - tags
-
-cleanup:
-  stage: cleanup
-  when: always
-  script:
-    - docker-compose kill
-    - docker-compose rm -fv --all
-    - docker-compose down --remove-orphans --rmi local
