@@ -16,6 +16,10 @@ return [
     'basePath' => dirname(__DIR__).'/src',
     'vendorPath' => '@app/../vendor',
     'runtimePath' => '@app/../runtime',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     // Bootstrapped modules are loaded in every request
     'bootstrap' => [
         'log',
