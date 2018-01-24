@@ -1,5 +1,7 @@
 FROM yiisoftware/yii2-php:7.2-apache
 
+RUN a2enmod rewrite
+
 WORKDIR /app
 
 ADD composer.lock composer.json /app/
