@@ -11,4 +11,7 @@
 
 return [
     'controllerNamespace' => 'app\commands',
+    'components'=>[
+        'db'  => require 'db.php'
+    ]
 ];

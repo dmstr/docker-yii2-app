@@ -13,8 +13,13 @@
 return [
     'bootstrap' => [
         'debug',
+        'gii'
     ],
     'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['*'] // настройте, как Вам нужно здесь
+        ],
         'debug' => [
             'class' => 'yii\debug\Module',
             'allowedIPs' => [

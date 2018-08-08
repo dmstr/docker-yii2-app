@@ -13,7 +13,6 @@
 $applicationType = php_sapi_name() == 'cli' ? 'console' : 'web';
 $env = YII_ENV;
 $configDir = __DIR__;
-
 return \yii\helpers\ArrayHelper::merge(
     require("{$configDir}/common.php"),
     require("{$configDir}/{$applicationType}.php"),

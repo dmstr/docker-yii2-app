@@ -15,6 +15,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'db' => require 'db.php',
         'log' => [
             'targets' => [
                 // writes to php-fpm output stream
@@ -35,9 +36,18 @@ return [
         ],
         'request' => [
             'cookieValidationKey' => getenv('APP_COOKIE_VALIDATION_KEY'),
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'urlManager' => [
-            'enablePrettyUrl' => getenv('APP_PRETTY_URLS')
+            'showScriptName' => false,
+            'enablePrettyUrl' => getenv('APP_PRETTY_URLS'),
+            'enableStrictParsing' => true,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'payment'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+            ],
         ]
     ],
 ];
