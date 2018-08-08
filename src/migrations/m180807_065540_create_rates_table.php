@@ -14,7 +14,7 @@ class m180807_065540_create_rates_table extends Migration
     {
         $this->createTable('{{%rates}}', [
             'id' => $this->primaryKey(),
-            'currency_id' => $this->bigInteger()->notNull(),
+            'currency' => $this->string(3)->notNull(),
             'rate' => $this->integer()->notNull(),
             'rate_date' => $this->timestamp()->notNull(),
         ]);

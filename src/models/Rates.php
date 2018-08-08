@@ -8,11 +8,9 @@ use Yii;
  * This is the model class for table "rates".
  *
  * @property int $id
- * @property int $currency_id
+ * @property string $currency
  * @property int $rate
  * @property string $rate_date
- *
- * @property Currency $currency
  */
 class Rates extends \yii\db\ActiveRecord
 {
@@ -30,11 +28,11 @@ class Rates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['currency_id', 'rate', 'rate_date'], 'required'],
-            [['currency_id', 'rate'], 'default', 'value' => null],
-            [['currency_id', 'rate'], 'integer'],
+            [['currency', 'rate', 'rate_date'], 'required'],
+            [['rate'], 'default', 'value' => null],
+            [['rate'], 'integer'],
             [['rate_date'], 'safe'],
-            [['currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currency::className(), 'targetAttribute' => ['currency_id' => 'id']],
+            [['currency'], 'string', 'max' => 3],
         ];
     }
 
@@ -45,17 +43,9 @@ class Rates extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'currency_id' => 'Currency ID',
+            'currency' => 'Currency',
             'rate' => 'Rate',
             'rate_date' => 'Rate Date',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCurrency()
-    {
-        return $this->hasOne(Currency::className(), ['id' => 'currency_id']);
     }
 }

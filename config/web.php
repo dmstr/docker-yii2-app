@@ -34,6 +34,10 @@ return [
                 ],
             ],
         ],
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => true,
+        ],
         'request' => [
             'cookieValidationKey' => getenv('APP_COOKIE_VALIDATION_KEY'),
             'parsers' => [
@@ -45,6 +49,7 @@ return [
             'enablePrettyUrl' => getenv('APP_PRETTY_URLS'),
             'enableStrictParsing' => true,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'rates'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'payment'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
             ],

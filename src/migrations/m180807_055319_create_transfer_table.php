@@ -14,9 +14,9 @@ class m180807_055319_create_transfer_table extends Migration
     {
         $this->createTable('{{%transfer}}', [
             'id' => $this->primaryKey(),
-            'sender_id' => $this->bigInteger()->null(),
+            'sender_id' => $this->bigInteger()->notNull(),
             'receiver_id' => $this->bigInteger()->notNull(),
-            'transfer_currency_id' => $this->bigInteger()->null(),
+            'transfer_currency' => $this->string(3)->notNull(),
             'sum' => $this->bigInteger()->null(),
             'transfer_type' => $this->integer()->null(),
         ]);

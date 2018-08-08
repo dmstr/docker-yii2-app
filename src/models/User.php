@@ -9,9 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $username
- * @property string $auth_key
- * @property string $salt
- * @property string $hash
+ * @property string $country
+ * @property string $city
  *
  * @property Account[] $accounts
  * @property Transfer[] $transfers
@@ -33,12 +32,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'salt', 'hash'], 'required'],
-            [['username', 'auth_key', 'salt', 'hash'], 'string', 'max' => 255],
-            [['auth_key'], 'unique'],
-            [['hash'], 'unique'],
-            [['salt'], 'unique'],
-            [['username'], 'unique'],
+            [['username', 'country', 'city'], 'required'],
+            [['username', 'country', 'city'], 'string', 'max' => 50],
         ];
     }
 
@@ -50,9 +45,8 @@ class User extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'username' => 'Username',
-            'auth_key' => 'Auth Key',
-            'salt' => 'Salt',
-            'hash' => 'Hash',
+            'country' => 'Country',
+            'city' => 'City',
         ];
     }
 
