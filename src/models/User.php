@@ -51,9 +51,9 @@ class User extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAccounts()
+    public function getAccount()
     {
-        return $this->hasMany(Account::className(), ['user_id' => 'id']);
+        return $this->hasOne(Account::className(), ['user_id' => 'id']);
     }
 
     /**

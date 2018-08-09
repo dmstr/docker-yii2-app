@@ -90,7 +90,7 @@ class UserController extends BaseController
         \Yii::$app->response->format = BaseResponse::FORMAT_XML;
         try {
             if ($payload->validate()) {
-                $user = User::find()->joinWith(['accounts'])->where(['user.id' => $id])->one();
+                $user = User::find()->joinWith(['account'])->where(['user.id' => $id])->one();
                 if ($user instanceof User) {
                     $response_body['user'] = $user->toArray();
                     $transfers_query = Transfer::find()->andWhere([
@@ -112,8 +112,14 @@ class UserController extends BaseController
                             \Yii::$app->formatter->asDatetime(new \DateTime($payload->to . ' 1 day'))
                         ]);
                     }
+                    $response_body['total_usd'] = 0;
+                    $response_body['total_sent_in_account_currency'] = 0;
+                    $response_body['total_received_in_account_currency'] = 0;
                     $transfers = $transfers_query->orderBy('created_at')->all();
                     foreach ($transfers as $transfer) {
+                        $response_body['total_usd'] += $transfer->sum_usd;
+                        $response_body['total_sent_in_account_currency'] += $transfer->sender_id === $user->id ? $transfer->sum_sender : 0;
+                        $response_body['total_received_in_account_currency'] += $transfer->receiver_id === $user->id ? $transfer->sum_receiver : 0;
                         $response_body['transactions'][$transfer->id] = [
                             'id' => $transfer->id,
                             'date' => $transfer->created_at,
@@ -125,19 +131,15 @@ class UserController extends BaseController
                             'sum_receiver' => $transfer->sum_receiver,
                             'sum_in_usd' => $transfer->sum_usd,
                             'type' => TransferTypeEnum::getTypeName($transfer->transfer_type),
-                            'comment' => $transfer->sender_id === $user->id ? 'credit' : 'debit',
+                            'comment' => $transfer->receiver_id === $user->id ? 'credit' : 'debit',
                         ];
                     }
+
                     $response->setBody($response_body);
                 } else {
                     $response->setStatusCode(500);
                     throw new \Exception('User with ' . $id . ' not found');
                 }
-
-                //var_dump($transfers);
-                //die;
-
-
             } else {
                 $response->setStatusCode(400);
                 throw new \Exception('Error during validating CreateAccount with message: ' . json_encode($payload->getErrors()));
