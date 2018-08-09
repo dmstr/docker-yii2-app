@@ -2,6 +2,7 @@
 
 namespace app\payloads;
 
+use app\validators\CurrencyValidator;
 use yii\base\Model;
 
 /**
@@ -15,7 +16,7 @@ class CreateUser extends Model
     /** @var */
     public $country;
     /** @var */
-    public $wallet_currency;
+    public $currency;
     /** @var */
     public $city;
 
@@ -25,9 +26,11 @@ class CreateUser extends Model
     public function rules()
     {
         return [
-            [['username', 'country', 'city', 'wallet_currency'], 'required'],
+            ['currency', 'filter', 'filter' => 'strtoupper'],
+            [['username', 'country', 'city', 'currency'], 'required'],
             [['username', 'country', 'city'], 'string', 'max' => 50],
-            [['wallet_currency'], 'string', 'max' => 3],
+            [['currency'], 'string', 'max' => 3],
+            ['currency', CurrencyValidator::class],
         ];
     }
 }

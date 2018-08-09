@@ -2,37 +2,47 @@
 
 namespace app\controllers;
 
+use app\models\Rates;
 use app\payloads\AddRate;
 use app\responses\BaseResponse;
-use yii\rest\ActiveController;
 
 /**
  * Class RatesController
  * @package app\controllers
  */
-class RatesController extends ActiveController
+class RatesController extends BaseController
 {
-    public $modelClass = 'app\models\Rates';
+    /** @var string */
+    public $modelClass = \app\models\Rates::class;
 
     /**
-     * {@inheritdoc}
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
-    /**
-     *
+     * @return string
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionCreate()
     {
+        $response = new BaseResponse();
+        $payload = new AddRate();
+        $payload->setAttributes(\Yii::$app->getRequest()->post());
+        if ($payload->validate()) {
+            $rate = new Rates();
+            $rate->rate = $payload->rate;
+            $rate->currency = $payload->currency;
+            $rate->rate_date = \Yii::$app->getFormatter()->asDate($payload->rate_date);
+            if ($rate->save()) {
+                $response->setStatusCode(200);
+            } else {
+                $response->setStatusCode(400);
+                $response->setBody('Error during validating CreateAccount with message: ' . json_encode($rate->getErrors()));
+            }
+        } else {
+            $response->setStatusCode(400);
+            $response->setBody('Error during validating CreateAccount with message: ' . json_encode($payload->getErrors()));
+            //TODO: log here
+        }
 
-        die('create');
+        return $response->toJson();
+
     }
 
     /**
@@ -41,8 +51,6 @@ class RatesController extends ActiveController
     public function actionIndex()
     {
         $response = new BaseResponse();
-        $payload = new AddRate(\Yii::$app->getRequest()->post());
-        if($payload->validate())
         $response->setStatusCode(501);
 
         return $response->toJson();

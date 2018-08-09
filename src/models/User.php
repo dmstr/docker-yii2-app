@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "user".
  *
@@ -61,7 +59,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTransfers()
+    public function getSends()
     {
         return $this->hasMany(Transfer::className(), ['sender_id' => 'id']);
     }
@@ -69,7 +67,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTransfers0()
+    public function getRefills()
     {
         return $this->hasMany(Transfer::className(), ['receiver_id' => 'id']);
     }

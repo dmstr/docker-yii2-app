@@ -37,6 +37,18 @@ class BaseResponse extends \yii\web\Response
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'status' => $this->getStatusCode(),
+            'message' => $this->statusText,
+            'body' => $this->getBody()
+        ];
+    }
+
+    /**
      * @return string
      */
     public function toJson()

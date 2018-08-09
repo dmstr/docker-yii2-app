@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use app\validators\CurrencyValidator;
 
 /**
  * This is the model class for table "account".
@@ -35,7 +35,14 @@ class Account extends \yii\db\ActiveRecord
             [['user_id'], 'integer'],
             [['sum'], 'number'],
             [['currency'], 'string', 'max' => 3],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            ['currency', CurrencyValidator::class],
+            [
+                ['user_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['user_id' => 'id']
+            ],
         ];
     }
 

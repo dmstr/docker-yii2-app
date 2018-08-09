@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use app\validators\CurrencyValidator;
 
 /**
  * This is the model class for table "rates".
@@ -29,10 +29,11 @@ class Rates extends \yii\db\ActiveRecord
     {
         return [
             [['currency', 'rate', 'rate_date'], 'required'],
-            [['rate'], 'default', 'value' => null],
-            [['rate'], 'integer'],
-            [['rate_date'], 'safe'],
+            [['rate'], 'double'],
+            [['rate'], 'unique', 'targetAttribute' => ['rate', 'currency', 'rate_date']],
+            [['rate', 'currency', 'rate_date'], 'safe'],
             [['currency'], 'string', 'max' => 3],
+            ['currency', CurrencyValidator::class],
         ];
     }
 

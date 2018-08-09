@@ -10,7 +10,6 @@ namespace app\controllers;
  * file that was distributed with this source code.
  */
 
-use Yii;
 use yii\web\Controller;
 
 /**
@@ -29,15 +28,5 @@ class SiteController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
-    }
-
-    /**
-     * Renders the start page.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
     }
 }

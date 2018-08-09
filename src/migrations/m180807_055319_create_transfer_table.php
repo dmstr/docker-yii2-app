@@ -17,8 +17,10 @@ class m180807_055319_create_transfer_table extends Migration
             'sender_id' => $this->bigInteger()->notNull(),
             'receiver_id' => $this->bigInteger()->notNull(),
             'transfer_currency' => $this->string(3)->notNull(),
-            'sum' => $this->bigInteger()->null(),
+            'transfer_sum' => $this->float()->null(),
+            'refill_sum' => $this->float()->null(),
             'transfer_type' => $this->integer()->null(),
+            'created_at' => $this->timestamp()->notNull()->defaultValue('NOW')
         ]);
     }
 
@@ -27,7 +29,6 @@ class m180807_055319_create_transfer_table extends Migration
      */
     public function safeDown()
     {
-
         $this->dropTable('transfer');
     }
 }
