@@ -21,7 +21,7 @@ Params:
 * country (string)
 * city (string)
 ### View user
-#####method GET http://localhost:20080/users/$id
+##### method GET http://localhost:20080/users/$id
 Params:
 * from (Y-m-d)
 * to (Y-m-d)
