@@ -1,89 +1,48 @@
-Docker Yii 2.0 Application
-==========================
+## Installation
+1) git clone https://github.com/pavelblossom/docker-yii2-app
+2) cd docker-yii2-app/
+3) git fetch && git checkout develop
+4) cd yii2-docker/
+5) cp .env-dist .env
+6) cp config/app.env-dist config/app.env
+7) mkdir web/assets
+8) docker-compose up -d
+9) docker-compose run --rm php composer install
+10) docker-compose exec php bash
+11) composer update -v 
 
-:octocat: [`dmstr/docker-yii2-app`](https://github.com/dmstr/docker-yii2-app)
-:wolf: [`dmstr/docker-yii2-app`](https://git.hrzg.de/dmstr/docker-yii2-app/pipelines)
-:whale: [`dmstr/yii2-app`](https://hub.docker.com/r/dmstr/yii2-app/)
-:cd: [`dmstr/php-yii2`](https://hub.docker.com/r/dmstr/php-yii2/)
+## Requests
 
-[![Build Status](https://travis-ci.org/dmstr/docker-yii2-app.svg?branch=master)](https://travis-ci.org/dmstr/docker-yii2-app)
-
-## Introduction
-
-This is a minimal dockerized application template for Yii 2.0 Framework in about 100 lines of code.
-
-
-## Requirements
-
-- [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
-  - Docker `>=1.10`
-  - docker-compose `>=1.7.0`
-
-
-## Setup
-
-Prepare `docker-compose` environment
-
-    cp .env-dist .env
-
-and application    
-    
-    cp config/app.env-dist config/app.env
-    mkdir web/assets
-
-Start stack
-
-    docker-compose up -d
-
-Show containers
-
-    docker-compose ps
-
-Run composer installation
-
-    docker-compose run --rm php composer install
-
-
-## Develop
-
-Create bash    
-    
-    docker-compose exec php bash
-
-Run package update in container    
-    
-    $ composer update -v
-
-...
-
-    $ yii help
-
-      
-## Test
-
-    cd tests
-    cp .env-dist .env
-
-Run tests in codeception (`forrest`) container
-      d
-    docker-compose run forrest run
-          
-> :info: This is equivalent to `codecept run` inside the tester container          
-  
-
-### CLI
-    
-    docker run dmstr/yii2-app yii
+### Create user
+#####method POST http://localhost:20080/users
+Params:
+* username (string)
+* currency (ISO format)
+* country (string)
+* city (string)
+### View user
+#####method GET http://localhost:20080/users/$id
+Params:
+* from (Y-m-d)
+* to (Y-m-d)
+### Add rate
+##### method POST http://localhost:20080/rates
+Params;
+* currency (ISO)
+* rate (float)
+* rate_date (Y-m-d)
+### Refill account
+##### method POST http://localhost:20080/refills
+Params;
+* accound_id
+* currency
+* sum
+### Payment account
+##### method POST http://localhost:20080/payments
+Params;
+* sender_account_id
+* receiver_account_id
+* sum
+* currency
 
 
-## Resources
-
-- [Changes](CHANGELOG.md)    
-- [Yii 2.0 Framework guide](http://www.yiiframework.com/doc-2.0/guide-index.html)
-- [Yii 2.0 Docker Images](https://github.com/yiisoft/yii2-docker)
-- [Docker documentation](https://docs.docker.com)
-
-    
----
-
-#### ![dmstr logo](http://t.phundament.com/dmstr-16-cropped.png) Built by [dmstr](http://diemeisterei.de)

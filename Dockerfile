@@ -18,3 +18,4 @@ RUN cp config/app.env-dist config/app.env
 RUN mkdir -p runtime web/assets && \
     chmod -R 775 runtime web/assets && \
     chown -R www-data:www-data runtime web/assets
+

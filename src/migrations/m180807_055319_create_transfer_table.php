@@ -18,7 +18,9 @@ class m180807_055319_create_transfer_table extends Migration
             'receiver_id' => $this->bigInteger()->notNull(),
             'transfer_currency' => $this->string(3)->notNull(),
             'transfer_sum' => $this->float()->null(),
-            'refill_sum' => $this->float()->null(),
+            'sum_receiver' => $this->float()->null(),
+            'sum_sender' => $this->float()->null(),
+            'sum_usd' => $this->float()->null(),
             'transfer_type' => $this->integer()->null(),
             'created_at' => $this->timestamp()->notNull()->defaultValue('NOW')
         ]);

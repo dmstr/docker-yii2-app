@@ -18,12 +18,6 @@ class m180807_044453_create_user_table extends Migration
             'country' => $this->string(50)->notNull(),
             'city' => $this->string(50)->notNull(),
         ]);
-        //$this->createIndex(
-        //    'idx_unique_deployment_session_variables',
-        //    '{{%deployment_session_variables}}',
-        //    ['session_id', 'key'],
-        //    true
-        //);
     }
 
     /**
