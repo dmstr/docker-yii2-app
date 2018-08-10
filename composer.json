@@ -1,32 +1,38 @@
 {
-    "name": "dmstr/yii2-app",
-    "minimum-stability": "stable",
-    "require": {
-        "vlucas/phpdotenv": "2.*",
-        "yiisoft/yii2": "^2.0.13",
-        "yiisoft/yii2-bootstrap": "2.*",
-        "yiisoft/yii2-debug": "2.*",
-        "codemix/yii2-streamlog": "^1.0.0"
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
-    "config": {
-        "fxp-asset": {
-            "enabled": false,
-            "installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            },
-            "vcs-driver-options": {
-                "github-no-api": true
-            },
-            "git-skip-update": "2 days",
-            "pattern-skip-version": "(-build|-patch)",
-            "optimize-with-installed-packages": false
-        }
+  "name": "dmstr/yii2-app",
+  "minimum-stability": "stable",
+  "require": {
+    "vlucas/phpdotenv": "2.*",
+    "yiisoft/yii2": "^2.0.13",
+    "yiisoft/yii2-bootstrap": "2.*",
+    "codemix/yii2-streamlog": "^1.0.0",
+    "yiisoft/yii2-debug": "2.*",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "fortis/iso-currency": "1.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
     }
+  ],
+  "config": {
+    "fxp-asset": {
+      "enabled": false,
+      "vcs-driver-options": {
+        "github-no-api": true
+      },
+      "git-skip-update": "2 days",
+      "pattern-skip-version": "(-build|-patch)",
+      "optimize-with-installed-packages": false
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "yii migrate --interactive=0"
+    ],
+    "post-install-cmd": [
+      "yii migrate --interactive=0"
+    ]
+  }
 }
