@@ -14,7 +14,7 @@
 ## Requests
 
 ### Create user
-#####method POST http://localhost:20080/users
+##### method POST http://localhost:20080/users
 Params:
 * username (string)
 * currency (ISO format)
