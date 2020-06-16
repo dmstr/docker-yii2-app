@@ -14,7 +14,7 @@ before_script:
 
   - export ISOLATION=buildpipeline${CI_BUILD_PIPELINE}
   - export COMPOSE_PROJECT_NAME=${ISOLATION}
-  - export APP_VERSION=$(git describe --always --dirty)
+  - export APP_VERSION=$(git describe --always --dirty --tags)
   - export PHP_IMAGE_NAME=dmstr/yii2-app
   - export STACK_PHP_IMAGE=${PHP_IMAGE_NAME}:${APP_VERSION}
   - export REGISTRY_PHP_IMAGE=${PHP_IMAGE_NAME}:${CI_BUILD_REF_NAME}
