@@ -18,18 +18,14 @@ before_script:
   - export PHP_IMAGE_NAME=dmstr/yii2-app
   - export STACK_PHP_IMAGE=${PHP_IMAGE_NAME}:${APP_VERSION}
   - export REGISTRY_PHP_IMAGE=${PHP_IMAGE_NAME}:${CI_BUILD_REF_NAME}
+  - docker info
+  - docker version
+  - docker-compose version
+  - cp .env-dist .env
+  - docker-compose build --pull
 
 after_script:
   - docker-compose down -v
-
-build:
-  stage: build
-  script:
-    - docker info
-    - docker version
-    - docker-compose version
-    - cp .env-dist .env
-    - docker-compose build --pull
 
 test:
   stage: test
